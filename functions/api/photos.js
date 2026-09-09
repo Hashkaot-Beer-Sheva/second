@@ -4,7 +4,7 @@ const folderFor = key => key.split('/').slice(0, -1).pop() || '';
 
 export async function onRequestGet({ env, request }) {
   try {
-    if (!env.APARTMENT_PICTURES?.list || !env.APARTMENT_PICTURES?.get) throw new Error('R2 binding APARTMENT_PICTURES is not configured on this Pages deployment');
+    if (!env.APARTMENT_PICTURES?.list || !env.APARTMENT_PICTURES?.get) return Response.json({ hasPhotos: false, photos: [], unavailable: true });
     const params = new URL(request.url).searchParams;
     const yechida = clean(params.get('yechida'));
     const listed = await env.APARTMENT_PICTURES.list({ prefix: 'apartment-pics/' });
