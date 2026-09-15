@@ -1,5 +1,5 @@
 const clean=v=>String(v??'').trim();
-const parcelKey=v=>clean(v).replace(/^0+/,'').replace(/\.png$/i,'');
+const parcelKey=v=>clean(v).replace(/\.(png|webp)$/i,'').replace(/^0+/,'');
 export async function onRequestGet({env,request}){
   try{
     const q=new URL(request.url).searchParams, wanted=parcelKey(q.get('parcel'));
