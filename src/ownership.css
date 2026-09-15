@@ -66,3 +66,4 @@
 .building-detail .leaflet-map{position:relative}.building-map-reset{position:absolute;z-index:2;top:10px;left:10px;border:1px solid #d7c7c2;border-radius:8px;background:#fffdfb;color:#31594d;padding:7px 9px;font:11px inherit;box-shadow:0 3px 10px #26473a25;cursor:pointer}.building-map-reset:hover{background:#f5e9e4}
 .building-detail .detail-grid>div:first-child .parcel-photo{position:relative;z-index:5;pointer-events:auto}.building-detail .detail-grid>div:first-child .parcel-photo-button{position:relative;z-index:6;display:block;pointer-events:auto!important}
 .parcel-photo-lightbox img{width:auto!important;height:auto!important;max-width:92vw!important;max-height:88vh!important;object-fit:contain!important}.parcel-photo-lightbox{cursor:zoom-out}.parcel-photo-lightbox>button{z-index:2}
+.table-id-link{border:0;background:none;color:#a4473f;text-decoration:underline;font:inherit;font-weight:700;cursor:pointer}
