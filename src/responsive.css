@@ -5,14 +5,14 @@ button,a,input{touch-action:manipulation}button{min-height:42px}.mobile-menu{ali
 @media (max-width:480px){.content{padding:24px 14px}.stats>div{padding:15px 11px}.stats strong{font-size:24px}.card{padding:16px}.map{height:230px}.welcome h2{font-size:27px}header{padding:0 14px}.content h1{font-size:27px}.login-panel{padding:30px 22px}.login h1{font-size:44px}}
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important}}
 /* Mobile navigation: use a compact, horizontally scrollable dock so labels remain discoverable. */
-@media (max-width:700px){
+@media (max-width:900px){
   .app aside{left:0;right:0;top:0;bottom:auto;width:100%;height:58px;box-sizing:border-box;padding:7px 10px;display:flex;flex-direction:row;align-items:center;gap:4px;overflow-x:auto;overflow-y:visible;z-index:50;box-shadow:0 6px 18px #271c2725;background:#fffdfb}
   .app aside .logo,.app aside .nav-label{display:none}
   .app aside>button{flex:0 0 auto;min-height:44px;height:44px;padding:8px 11px;justify-content:center;font-size:11px;white-space:nowrap;border-radius:9px;gap:6px}
   .app aside>button:not(.active){font-size:11px}
   .app aside>button svg{width:15px;height:15px}
   .app main{margin-left:0;padding-top:58px;padding-bottom:20px}
-  header{height:58px;padding:0 14px;position:sticky;top:58px;z-index:10;background:rgba(255,253,251,.96)}
+  header{height:58px;padding:0 14px;position:fixed;top:0;left:0;right:0;z-index:70;background:rgba(255,253,251,.97);backdrop-filter:blur(12px);box-shadow:0 4px 14px #271c2718}
   .content{padding:20px 14px 30px}
   /* Keep the primary navigation unobstructed; source spreadsheets remain available on desktop. */
   .app aside .source-label~button{display:none}
@@ -25,15 +25,23 @@ button,a,input{touch-action:manipulation}button{min-height:42px}.mobile-menu{ali
   .app aside{height:54px;padding:6px 8px}
   .app aside>button{min-height:42px;height:42px;padding:7px 9px;font-size:10px}
   .app main{padding-top:54px;padding-bottom:12px}
-  header{height:54px;top:54px}
+  header{height:54px}
 }
 
-@media (max-width:700px){
+@media (max-width:900px){
+  .login{display:block;min-height:100svh;background:linear-gradient(180deg,#fffdfb 0%,#f7f1ef 100%)}
+  .login-panel{min-height:100svh;box-sizing:border-box;padding:32px 22px 34px;justify-content:flex-start}
+  .login .logo{margin-bottom:42px}.login .brand-mark{width:48px!important;height:48px!important}.login h1{font-size:44px;line-height:1.02;margin:0 0 10px}.login .muted{font-size:13px;line-height:1.5;margin-bottom:30px}.login label{font-size:11px;margin-bottom:16px}.login input{min-height:52px;box-sizing:border-box;border-radius:10px;padding:15px 14px;font-size:16px}.login-btn{min-height:54px;margin-top:10px;border-radius:10px;padding:16px;font-size:13px}.login-art{display:none}.source-switcher{position:fixed;left:14px;right:14px;bottom:14px;justify-content:space-between;border-radius:12px;box-shadow:0 8px 24px #542f3017}
   .app aside{display:none!important}
   .app aside.mobile-nav-open{display:grid!important;position:fixed;left:10px;right:10px;top:60px;bottom:auto;width:auto;height:auto;max-height:calc(100vh - 76px);overflow-y:auto;overflow-x:hidden;grid-template-columns:1fr;padding:12px;background:#fffdfb;border:1px solid #decac3;border-radius:14px;box-shadow:0 14px 34px #271c2738;z-index:80}
   .app aside.mobile-nav-open .logo,.app aside.mobile-nav-open .nav-label{display:none}
   .app aside.mobile-nav-open>button{display:flex!important;width:100%;min-height:42px;height:auto;justify-content:flex-start;padding:9px 12px;font-size:12px!important}
   .app aside.mobile-nav-open .extras-menu{position:static;width:auto;max-height:none;box-shadow:none;border:0;border-left:2px solid #d9c5bd;border-radius:0;margin:0 0 4px 8px;padding:3px 0 3px 8px}
-  .mobile-menu-trigger{display:flex;align-items:center;gap:7px;border:1px solid #decac3;border-radius:9px;background:#fffdfb;color:#31594d;padding:8px 11px;font-size:12px;font-weight:700;cursor:pointer}
+  .mobile-menu-trigger{display:flex!important;align-items:center;gap:7px;border:1px solid #c9aaa0;border-radius:9px;background:#fffdfb;color:#713038;padding:9px 12px;font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 2px 8px #542f3017;flex:0 0 auto}
   .mobile-menu-trigger span{font-size:11px}
+  .building-detail{position:fixed!important;inset:0!important;z-index:200!important;width:100%!important;height:100svh!important;box-sizing:border-box;overflow-y:auto;padding:72px 16px 34px!important;background:#f7f1ef;overscroll-behavior:contain;touch-action:pan-y}
+  .building-detail .back-btn{position:fixed;top:0;left:0;right:0;z-index:210;width:100%;min-height:54px;margin:0;padding:8px 16px;background:rgba(247,241,239,.98);border-bottom:1px solid #e1d2cc;border-radius:0;color:#31594d;font-weight:700;justify-content:flex-start;box-shadow:0 4px 12px #542f3014}
+  header h1{min-width:0;max-width:58vw;margin:0 0 0 8px;font-size:clamp(16px,4.5vw,23px);line-height:1.08;white-space:normal;overflow-wrap:anywhere}
+  .designed-toolbar{display:grid;grid-template-columns:1fr;gap:9px;align-items:stretch}.designed-toolbar input{min-width:0;width:100%;box-sizing:border-box}.designed-owner-filters{display:none}.designed-owner-select{display:block;width:100%;min-height:42px;border:1px solid #decac3;border-radius:10px;background:#fffdfb;color:#31594d;padding:9px 11px;font:12px inherit}
+  .designed-building-head{align-items:flex-start;flex-wrap:wrap}.designed-building-name{min-width:0;max-width:100%}.designed-building-name strong{white-space:normal;overflow-wrap:anywhere;line-height:1.2}.designed-building-toggle{margin-left:auto}.designed-floor-row{padding:9px}.designed-apartment-grid{grid-template-columns:1fr;gap:8px;padding:8px}.designed-apartment{min-height:0;height:auto;padding:11px;overflow-wrap:anywhere;word-break:normal}.designed-apartment>span:not(.designed-apartment-top){display:grid;grid-template-columns:auto minmax(0,1fr);gap:7px;align-items:start;line-height:1.25}.designed-apartment>span small{min-width:72px}.designed-apartment-top{flex-wrap:wrap;gap:5px}.designed-apartment-top b,.designed-apartment-top em{white-space:nowrap}.designed-rent,.designed-lease{white-space:normal;overflow-wrap:anywhere}
 }
