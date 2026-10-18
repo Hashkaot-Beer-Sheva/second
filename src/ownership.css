@@ -179,5 +179,6 @@
 .building-detail .detail-grid>div:first-child .leaflet-map{min-height:280px}
 @media(min-width:701px){.building-detail .detail-grid>div:first-child{height:320px!important}.building-detail .detail-grid>div:first-child .leaflet-map{height:290px!important}}
 @media(max-width:700px){.building-leaflet-map{min-height:220px}.building-detail .detail-grid>div:first-child .leaflet-map{min-height:220px}}
+@media(max-width:900px){.building-detail .detail-grid{display:block!important}.building-detail .detail-grid>div:first-child{display:block!important;height:auto!important;min-height:0!important}.building-detail .detail-grid>div:first-child .leaflet-map{display:block!important;width:100%!important;height:260px!important;min-height:260px!important;margin:0 0 12px!important}.building-leaflet-map{display:block!important;width:100%!important;height:100%!important;min-height:260px!important}.building-modal-pin{z-index:1000!important}.building-modal-pin span{width:32px;height:32px;font-size:15px}}
 .building-modal-pin{background:transparent!important;border:0!important}
 .building-modal-pin span{display:grid;place-items:center;width:30px;height:30px;border:2px solid #fff;border-radius:50%;background:#315f8a;color:#fff;font-size:14px;line-height:1;box-shadow:0 2px 7px #18344c66}
