@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/src/ownership.css" />
     <link rel="stylesheet" href="/src/detail.css" />
     <link rel="stylesheet" href="/src/colors.css" />
+    <link rel="manifest" href="/manifest.webmanifest" />
   </head>
   <body>
     <div id="root"></div>
@@ -25,6 +26,26 @@
         localStorage.setItem('propertyDataSource', button.dataset.source === 'local' ? 'local' : 'cloud');
         location.reload();
       });
+    </script>
+    <script>
+      if ('serviceWorker' in navigator && location.protocol === 'https:') {
+        navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' }).then(reg => {
+          reg.update();
+          reg.addEventListener('updatefound', () => {
+            const worker = reg.installing;
+            if (!worker) return;
+            worker.addEventListener('statechange', () => {
+              if (worker.state === 'installed' && navigator.serviceWorker.controller) worker.postMessage({ type: 'SKIP_WAITING' });
+            });
+          });
+        }).catch(() => {});
+        let refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (refreshing) return;
+          refreshing = true;
+          window.location.reload();
+        });
+      }
     </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
