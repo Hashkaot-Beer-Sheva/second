@@ -6,7 +6,7 @@ import {parseCSV,parseCSVFromRow,parseMatrix,buildData} from './functions/api/da
 
 const root=process.cwd();
 const dataDir=path.join(root,'local-data','SPREADSHEETS');
-const files={unified:['Unified Attempt1.csv'],easy:['EasyRent Prod - Apartments (1).csv'],renters:['Hashkaot Renters zehavit (1).csv','Hashkaot Renters zehavit.csv'],purchases:['Beer Sheva Monthly Report- Purchases.csv'],occupancy:['New Occupancy  -nov 26.csv'],coordinates:['building-coordinates (4) (1).csv']};
+const files={unified:['Unified Attempt1.csv'],easy:['EasyRent Prod - Apartments (1).csv'],renters:['Hashkaot Renters nov 26 zehavit .csv.csv'],purchases:['Beer Sheva Monthly Report- Purchases.csv'],occupancy:['New Occupancy  -nov 26.csv'],coordinates:['building-coordinates (4) (1).csv']};
 let localCache;
 async function readFirst(names){for(const name of names){try{return await fs.readFile(path.join(dataDir,name),'utf8')}catch{}}throw new Error('Missing local CSV: '+names[0])}
 async function localData(){if(localCache)return localCache;const texts={};for(const [key,names] of Object.entries(files))texts[key]=await readFirst(names);const parsed={unified:parseCSV(texts.unified),easy:parseCSV(texts.easy),renters:parseCSVFromRow(texts.renters,1),purchases:parseCSV(texts.purchases),occupancy:parseMatrix(texts.occupancy),coordinates:parseCSV(texts.coordinates)};localCache=buildData(parsed);localCache.raw.coordinates=parsed.coordinates;localCache.raw.occupancy=parsed.occupancy;return localCache}

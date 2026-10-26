@@ -19,7 +19,7 @@
     <script>
       const originalFetch = window.fetch;
       window.fetch = (input, init) => {
-        if (String(input) === '/api/data' && localStorage.getItem('propertyDataSource') === 'local') input = '/api/local-data';
+        if (String(input) === '/api/data' && location.hostname === 'localhost' && localStorage.getItem('propertyDataSource') === 'local') input = '/api/local-data';
         return originalFetch(input, init);
       };
       document.querySelectorAll('#source-switcher button').forEach(button => button.onclick = () => {
